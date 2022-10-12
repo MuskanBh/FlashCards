@@ -1,4 +1,6 @@
 <div class="flashs">
   <app-flash *ngFor="let flash of flashs; trackBy: trackbyFlashId" [flash]="flash"
-  (onToggleCard)="handleToggleCard($event)" (onDeleteFlash)="handleDelete($event)"></app-flash>
+  (onToggleCard)="handleToggleCard($event)" (onDeleteFlash)="handleDelete($event)"
+  (onEditFlash)="handleEdit($event)"
+  (onRememberedChanges)="handleRememberedChanges($event)"></app-flash>
 </div>

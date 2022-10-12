@@ -18,15 +18,16 @@ export class FlashComponent implements OnInit {
     this.onToggleCard.emit(this.flash.id);
   }
 
-  @Output() onMarkCorrect = new EventEmitter();
+  @Output() onRememberedChanges = new EventEmitter();
   markCorrect(){
-    this.onMarkCorrect.emit({
+    this.onRememberedChanges.emit({
       id:this.flash.id,
       flag:'correct'});
   }
-  @Output() onMarkIncorrect = new EventEmitter();
+
+
   markIncorrect(){
-    this.onMarkIncorrect.emit({
+    this.onRememberedChanges.emit({
       id:this.flash.id,
       flag:'incorrect'});
   }
@@ -38,6 +39,7 @@ export class FlashComponent implements OnInit {
   deleteFlash(){
     this.onDeleteFlash.emit(this.flash.id);
   }
+
 
   constructor() { }
 

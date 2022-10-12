@@ -12,6 +12,12 @@ function getRandomNumber() {
 })
 export class AppComponent {
   title = 'ng-flashcards';
+  editing =false;
+  editingId : number = 0;
+  data: any ={
+    id: 0,
+    flag: 'correct'
+  }
   flashs: IFlash[] =[{
     question:'Question 1',
     answer:'Answer 1',
@@ -40,5 +46,13 @@ export class AppComponent {
     const flashId = this.flashs.findIndex(flash => flash.id === id);
     this.flashs.splice(flashId, 1);
     console.log(id);
+  }
+  handleEdit(id:number){
+    this.editing=true;
+    this.editingId = id;
+  }
+  handleRememberedChanges(data : any){
+    const flash = this.flashs.find(flash => flash.id === data.id);
+    flash!.remembered = data.flag;
   }
 }
